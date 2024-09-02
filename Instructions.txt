@@ -1,0 +1,15 @@
+We are making a transport layer SDK which can be used for data transfer between different devices.
+- use rust+Tokio generate a tcp client dll and server ,which can send and receive data. 
+- client dll need to load in memory,and send data to server,dll can load with program written by c++, Golang, python, etc.
+- server is a console program,can run in background,which can receive data from client dll. And support bi-direction communication.
+- server can run in the same machine with client,or can run in the remote machine. One server can connect with multiple clients. 
+- The communication protocol is tcp. The format of data is defined by protocol buffer.
+- Client and server utilize the power of asyncchrnous programming to speed up the communication.
+- The client and server are implemented by rust+tokio. They must cross-platform, which means they can run on Windows, Linux, and MacOS.
+- You can use golang and python to implement the test client which can load the client dll to transfer data to server.
+- Client dll on the rust layer for allocation and deallocation of memory, the golang and python layer allocates the memory by calling the function of client dll,it then fills up the allocated space buffer with data through the Rust library API calls,
+once the data has beend transferred to server, the allocated memory will be deallocated by calling the function of client dll.
+- The client dll and server need to be packaged into a dll file and a exe file.
+
+
+
