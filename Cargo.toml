@@ -1,0 +1,21 @@
+[package]
+name = "transport-sdk"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+prost = "0.8"
+prost-types = "0.8"
+tonic = "0.5"
+
+[build-dependencies]
+prost-build = "0.8"
+
+[lib]
+name = "client"
+crate-type = ["cdylib"]
+
+[[bin]]
+name = "server"
+path = "src/server/main.rs"

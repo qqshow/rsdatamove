@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package transport;
+
+message Data {
+    string content = 1;
+}
+
+service Transport {
+    rpc SendData (Data) returns (Data);
+}
